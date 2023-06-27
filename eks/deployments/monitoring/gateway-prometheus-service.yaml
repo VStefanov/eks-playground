@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-prom
+  namespace: istio-ingress
+  labels:
+    app: istio-gateway-release
+spec:
+  ports:
+    - name: metrics
+      port: 15090
+  selector:
+    app: istio-gateway-release
+    istio: gateway-release
