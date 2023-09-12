@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: iam-demo
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: iam-demo
+   template:
+     metadata:
+       labels:
+         app: iam-demo
+     spec:
+       #serviceAccountName: sa-poc
+       containers:
+       - name: iam-demo
+         image: amazon/aws-cli
+         ports:
+         - containerPort: 80
